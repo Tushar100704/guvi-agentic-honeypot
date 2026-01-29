@@ -8,7 +8,9 @@ import requests
 app = FastAPI(title="GUVI Agentic Honeypot")
 
 # ================= CONFIG =================
-API_KEY = "mysecretkey"
+import os
+API_KEY = os.getenv("API_KEY")
+
 GUVI_CALLBACK = "https://hackathon.guvi.in/api/updateHoneyPotFinalResult"
 
 SCAM_KEYWORDS = [
@@ -128,3 +130,4 @@ def honeypot(
         "status": "success",
         "reply": reply
     }
+
